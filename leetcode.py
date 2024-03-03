@@ -1,33 +1,28 @@
-# A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+# Given two strings s and t, return true if t is an anagram of s, and false otherwise.
 
-# Given a string s, return true if it is a palindrome, or false otherwise.
+# An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
 
  
 
 # Example 1:
 
-# Input: s = "A man, a plan, a canal: Panama"
+# Input: s = "anagram", t = "nagaram"
 # Output: true
-# Explanation: "amanaplanacanalpanama" is a palindrome.
 # Example 2:
 
-# Input: s = "race a car"
-# Output: false
-# Explanation: "raceacar" is not a palindrome.
-# Example 3:
-
-# Input: s = " "
-# Output: true
-# Explanation: s is an empty string "" after removing non-alphanumeric characters.
-# Since an empty string reads the same forward and backward, it is a palindrome.
-
+# Input: s = "rat", t = "car"
 
 # Solution
 
 class Solution:
-    def isPalindrome(self, s: str) -> bool:
-        s = ''.join(e for e in s if e.isalnum()).lower()
-        return s==s[::-1]
+    def isAnagram(self, s: str, t: str) -> bool:
+        a = sorted(s.lower())
+        b = sorted(t.lower())
+
+        if a != b:
+            return False
+        else:
+            return True
 
 solution1 = Solution()
-print(solution1.isPalindrome(s = " "))
+print(solution1.isAnagram(s = "rat", t = "car"))
